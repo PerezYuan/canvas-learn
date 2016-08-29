@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas-03</title>
+</head>
+<style type="text/css">
+    canvas { 
+        border: 1px solid black; 
+    }
+</style>
+<body>
+    <!-- <canvas>标签中提供了替换内容。支持<canvas>的浏览器将会忽略在容器中包含的内容，并且只是正常渲染canvas。 -->
+    <canvas id="wrap" width="500" height="500">
+         替换内容
+    </canvas>
+
+    <script type="text/javascript">
+    /* 
+        beginPath()
+        新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+        closePath()
+        闭合路径之后图形绘制命令又重新指向到上下文中。
+        stroke()
+        通过线条来绘制图形轮廓。
+        fill()
+        通过填充路径的内容区域生成实心的图形
+    */
+    function draw() {
+        var canvas = document.getElementById('wrap');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            ctx.beginPath();
+            ctx.moveTo(75,50);
+            ctx.lineTo(100,75);
+            ctx.lineTo(100,25);
+            ctx.closePath();
+            ctx.stroke();
+            // 闭合路径
+
+            ctx.beginPath();
+            ctx.moveTo(175,50);
+            ctx.lineTo(200,75);
+            ctx.lineTo(200,25);
+            // ctx.closePath();
+            ctx.stroke();
+            // 不闭合路径
+
+            ctx.beginPath();
+            ctx.moveTo(275,50);
+            ctx.lineTo(300,75);
+            ctx.lineTo(300,25);
+            ctx.fill();
+            // fill填充会自动闭合路径
+        }
+    }
+    draw();
+    </script>
+</body>
+</html>
