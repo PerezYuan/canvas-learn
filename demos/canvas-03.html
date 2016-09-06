@@ -6,11 +6,17 @@
 </head>
 <style type="text/css">
     canvas { 
+        position: relative;
+        height: 100%;
+        width: 100%;
+        left: 50%;
+        top: 50%;
         border: 1px solid black; 
+        transform: translateX(-50%);
     }
 </style>
 <body>
-    <canvas id="wrap" width="500" height="500">
+    <canvas id="wrap">
          替换内容
     </canvas>
 
@@ -29,6 +35,13 @@
         var canvas = document.getElementById('wrap');
         if (canvas.getContext){
             var ctx = canvas.getContext('2d');
+
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(10,10);
+            ctx.closePath();
+            ctx.stroke();
+            // 闭合路径
 
             ctx.beginPath();
             ctx.moveTo(75,50);
