@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas-02</title>
+</head>
+<style type="text/css">
+    canvas { 
+        border: 1px solid black; 
+    }
+</style>
+<body>
+    <canvas id="wrap" width="500" height="500">
+         替换内容
+    </canvas>
+
+    <script type="text/javascript">
+    /* 
+        fillRect(x, y, width, height)
+        绘制一个填充的矩形
+        strokeRect(x, y, width, height)
+        绘制一个矩形的边框
+        clearRect(x, y, width, height)
+        清除指定矩形区域，让清除部分完全透明。
+    */
+    function draw() {
+        var canvas = document.getElementById('wrap');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillRect(25,25,450,450);
+            ctx.clearRect(45,45,410,410);
+            ctx.strokeRect(50,50,400,400);
+        }
+    }
+    draw();
+    </script>
+</body>
+</html>
