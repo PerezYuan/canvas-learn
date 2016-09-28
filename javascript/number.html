@@ -48,6 +48,21 @@
         console.log(isNaN(null));
         // true  Number(undefined)转换成NaN 
         console.log(isNaN(undefined));
+
+        // http://stackoverflow.com/questions/115548/why-is-isnannull-false-in-js
+        // 123
+        console.log(parseInt('123sadasdwq'));
+        // 123
+        console.log(parseInt('123sadasdwq123123'));
+        // NaN
+        console.log(Number('123sadasdwq123123'));
+
+        // 0 忽略前置0，没有第二个参数
+        console.log(parseFloat('0xA'));
+        // 10 可以传进制
+        console.log(parseInt('0xA'));
+        // 0
+        console.log(parseInt('0xA',10));
     </script>
 </body>
 </html>
