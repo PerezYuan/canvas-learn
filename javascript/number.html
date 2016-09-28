@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>number</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 8进制 超过8会解析成10进制
+        console.log(013);
+        console.log(019);
+
+        // 16进制
+        console.log(0x1ff);
+        // console.log(0x1g); 报错
+
+        // 浮点值可以用e表示,最高精度是17位
+        var a = 0.1, b = 0.2,
+            c = 0.1, d = 0.15;
+        // 0.30000000000000004
+        console.log(a + b); 
+        // 0.25
+        console.log(c + d); 
+
+        // 极大和极小值
+        // 5e-324
+        console.log(Number.MIN_VALUE); 
+        // 1.7976931348623157e+308
+        console.log(Number.MAX_VALUE);
+        // true
+        console.log(isFinite(Number.MAX_VALUE));
+        // false
+        console.log(isFinite(Infinity));
+
+        // NaN和任何值都不相等
+        console.log(NaN == NaN);
+        console.log()
+    </script>
+</body>
+</html>

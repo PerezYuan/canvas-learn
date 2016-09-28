@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeof</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var baseUndefined,
+            baseNull = null,
+            baseNumber = 1,
+            baseBoolean = true,
+            baseString = 'string'
+            people = {}
+        // undefined
+        console.log(typeof baseUndefined);
+        // object 空对象指针
+        console.log(typeof baseNull);
+        // number
+        console.log(typeof baseNumber);
+        // boolean
+        console.log(typeof baseBoolean);
+        // string
+        console.log(typeof baseString);
+        // object
+        console.log(typeof people);
+
+        // true undefined值派生自null
+        console.log(baseUndefined == baseNull);
+    </script>
+</body>
+</html>
