@@ -34,7 +34,20 @@
 
         // NaN和任何值都不相等
         console.log(NaN == NaN);
-        console.log()
+        // true
+        console.log(isNaN(NaN));
+        // false
+        console.log(isNaN(1));
+        // 转换成1 false
+        console.log(isNaN(true));
+        // 转换成数字 false
+        console.log(isNaN('0'));
+        // true
+        console.log(isNaN('string'));
+        // false Number(null)转换成0 
+        console.log(isNaN(null));
+        // true  Number(undefined)转换成NaN 
+        console.log(isNaN(undefined));
     </script>
 </body>
 </html>
