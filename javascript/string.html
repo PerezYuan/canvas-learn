@@ -11,7 +11,29 @@
 
         var x = 'first';
         x = 'second';
-        console.log(x);
+        console.log(x);  //second
+
+        var ten = 10;
+        // 10
+        console.log(ten.toString());
+        // 1010
+        console.log(ten.toString(2));
+        // 12
+        console.log(ten.toString(8));
+        // 10
+        console.log(ten.toString(10));
+        // a
+        console.log(ten.toString(16));
+        // a
+        console.log(ten.toString(32));
+        var isNull = null;
+        // console.log(isNull.toString()); error
+        var isUndefined;
+        // console.log(isUndefined.toString()); error
+        // 'null'
+        console.log(String(null));
+        // 'undefined'
+        console.log(String(undefined));
     </script>
 </body>
 </html>
