@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>operator1</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num1 = 15;
+		var num2 = 16;
+		// 32;
+		console.log(++num1 + num2);
+		var num3 = 15;
+		var num4 = 16;
+		// 31;
+		console.log(num3++ + num4);
+
+		var stringNum = "2";
+		console.log(++stringNum); //3
+		var string = "asd2";
+		console.log(++string); //NaN 会先调用Number()
+		var stringBool = false;
+		console.log(++stringBool); //1
+		var stringNull = null;
+		console.log(++stringNull); //1 Number(null) = 0
+		var stringUndefined;
+		console.log(++stringUndefined); //NaN
+		var obj = {};
+		console.log(++obj); //NaN
+		var obj2 = {
+			valueOf : function() { return 1}
+		};
+		console.log(++obj2); //2
+	</script>
+</body>
+</html>
