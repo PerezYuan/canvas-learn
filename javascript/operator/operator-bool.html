@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>operator-bool</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// true
+		console.log(!false);
+		// true
+		console.log(!NaN);
+		// false
+		console.log(!1);
+		// true
+		console.log(!0);
+		// true
+		console.log(!'');
+		// false
+		console.log(!'false');
+
+		// !!操作等于Boolean()
+
+		var _True = true;
+		var _False = false;
+		// var _judge = (_True && someUndefined); //error
+		// console.log("执行");
+
+		var _judge = (_False && someUndefined);
+		console.log("执行");
+
+		// var _judge = (_False || someUndefined); //error
+		// console.log("执行");
+
+		var _judge = (_True || someUndefined);
+		console.log("执行");
+	</script>
+</body>
+</html>
