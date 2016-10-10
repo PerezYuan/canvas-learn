@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>operator-relation</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// true 大写编码小于小写
+		console.log('abcd' > 'Abcd'); 
+		// false
+		console.log('abcd'.toLowerCase() > 'Abcd'.toLowerCase());
+		// true
+		console.log('abcd'.toLowerCase() == 'Abcd'.toLowerCase());
+
+		// false 1的编码小于2
+		console.log('13' > '2');
+		// true 会被转换
+		console.log('13' > 2);
+
+		// false
+		console.log(NaN > 1);
+		// false
+		console.log(NaN <= 1);
+
+		//true
+		console.log(null == undefined);
+		//false
+		console.log(null === undefined);
+	</script>
+</body>
+</html>
