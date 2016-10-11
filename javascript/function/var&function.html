@@ -27,6 +27,18 @@
         else{
             function sayTruth(){alert('go false')};
         }
+
+
+        // add some
+        function getName(obj) {
+            obj.name = 'perezyuan';
+            obj = new Object();
+            obj.name = 'butsalt';
+        }
+        var people = new Object();
+        getName(people);
+        // perezyuan 函数体中new一个Object，obj就引用一个局部对象了，会在函数体执行完后销毁
+        console.log(people.name);
     </script>
 </body>
 </html>
