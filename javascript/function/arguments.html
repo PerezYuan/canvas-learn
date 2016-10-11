@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+<script>
+    function doAdd() {
+        if(arguments.length == 1) {
+            return arguments[0];
+        } else if (arguments.length == 2) {
+            return arguments[0] + arguments[1];
+        }
+    }
+    // 10
+    console.log(doAdd(10));
+    // 30
+    console.log(doAdd(10,20));
+</script>
+</body>
+</html>

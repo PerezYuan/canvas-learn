@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var & function</title>
+</head>
+<body>
+    <script>
+        test1();
+        // test2(); error
+        // 函数声明
+        function test1() {
+            console.log('函数声明被提前了');
+        }
+        // 函数表达式
+        var test2 = function () {
+            console.log('函数表达式不会提前 ');
+        }
+
+
+
+        // sayTruth(); error 不函数声明不允许出现在statements中，但是并不严格
+
+        if(1){
+            function sayTruth(){alert('go true')};
+        }
+        else{
+            function sayTruth(){alert('go false')};
+        }
+    </script>
+</body>
+</html>
