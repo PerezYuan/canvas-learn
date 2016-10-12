@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>circle</title>
+</head>
+<body>
+    <canvas id="circle" width="300" height="300"></canvas>
+    <script type="text/javascript">
+        var canvas_2 = document.getElementById("circle")
+        , ctx_2 = canvas_2.getContext("2d");
+        ctx_2.strokeStyle = "#fff2b7";
+        ctx_2.lineWidth = 3;
+        var arc = -0.4
+        , n = 4.4 / 460;
+        var arcTimer = setInterval(function() {
+            if (arc < 1.4) {
+                arc += n;
+                ctx_2.beginPath();
+                ctx_2.arc(65, 65, 62, -0.4 * Math.PI, Math.PI * arc);
+                ctx_2.stroke();
+                ctx_2.closePath()
+            } else {
+                clearInterval(arcTimer)
+            }
+        }, 50);
+    </script>
+</body>
+</html>
