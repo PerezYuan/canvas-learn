@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>autoFunction</title>
+</head>
+<body>
+<script>
+    (function () {
+        alert(1);
+    })();
+    (function fn1() {
+        alert(12222);
+    })();
+    // anonymous匿名函数
+    var test = Function('console.log("测试");');
+    console.log(test);
+</script>
+</body>
+</html>
