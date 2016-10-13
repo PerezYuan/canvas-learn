@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>conversion-join</title>
+    <title>conversion</title>
 </head>
 <body>
 <script>
@@ -13,7 +13,7 @@
     // 本质与toString没区别，区别在于会调用每一项的toLocaleString
     console.log(arr.toLocaleString());
 
-    // 传入空或者undefined，默认使用，
+    // 传入空或者undefined，默认使用','早期浏览器会报错
     console.log(arr.join(undefined));
     console.log(arr.join('^^^'));
 </script>
