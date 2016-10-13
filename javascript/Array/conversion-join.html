@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>conversion-join</title>
+</head>
+<body>
+<script>
+    var arr = ['one','two','three'];
+
+    console.log(arr.toString());
+    console.log(arr.valueOf());
+    // 本质与toString没区别，区别在于会调用每一项的toLocaleString
+    console.log(arr.toLocaleString());
+
+    // 传入空或者undefined，默认使用，
+    console.log(arr.join(undefined));
+    console.log(arr.join('^^^'));
+</script>
+</body>
+</html>
