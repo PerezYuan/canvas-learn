@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reorder</title>
+</head>
+<body>
+<script>
+    var value = [1,2,3,10,20,30,51];
+    var reverseValue = value.reverse();
+    // [51,30,20,10,3,2,1]
+    console.log(reverseValue);
+    var sortValue = value.sort();
+    // [1,10,2,20,3,30,51]  不是按照大小排序的
+    console.log(sortValue);
+
+    // 传入排序函数
+    // 负数 第一个数在第二个数之前
+    // 正数 第二个数在第一个数之前
+    // 相等返回0
+    console.log(value.sort(function(a,b){
+        return a - b;
+    }));
+</script>
+</body>
+</html>
