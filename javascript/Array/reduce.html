@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reduce</title>
+</head>
+<body>
+<script>
+    // 归并方法
+    var array = [1,2,3,4,5,6];
+    var newArray = array.reduce(function(prev, next, index, array){
+        return prev + next;
+    })
+    // 21
+    console.log(newArray);
+    // reduceRight反向  prev和next对换
+</script>
+</body>
+</html>
