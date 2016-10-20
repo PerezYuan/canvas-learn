@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iterative</title>
+</head>
+<body>
+<script>
+    // 迭代方法
+
+    /*
+    *  every() 全部符合返回true
+    *  some() 部分符合返回true
+    *  forEach() 对每一个进行指定函数
+    *  filter() 返回符合条件的item
+    *  map() 返回map之后的值
+    */
+    var array = [1,2,3,4,5,6,7,8,9,10];
+    var everyResult = array.every(function(item, index, array) {
+        return item > 1;
+    })
+    // fasle
+    console.log(everyResult);
+
+    var someResult = array.some(function(item, index, array) {
+        return item > 9;
+    })
+    // true
+    console.log(someResult);
+
+    array.forEach(function(item, index, array) {
+        console.log(index + ':' + item + '....' + array);
+    })
+
+    var filterResult = array.filter(function(item, index, array) {
+        return item > 5;
+    })
+    // [6,7,8,9,10]
+    console.log(filterResult);
+
+    var mapResult = array.map(function(item, index, array) {
+        return item + 1;
+    })
+    // [2,3,4,5,6,7,8,9,10,11]
+    console.log(mapResult);
+</script>
+</body>
+</html>
