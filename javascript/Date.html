@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+<script>
+    var date = new Date();
+    console.log(date);
+
+    // 判断函数执行时间
+    var start = Date.now();
+    var sum = 0;
+    for(var i = 0;i<1000000;i++){
+        sum += i;
+    }
+    var end = Date.now();
+    console.log(end - start);
+</script>
+</body>
+</html>
