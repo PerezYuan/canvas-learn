@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manipulation</title>
+</head>
+<body>
+<script>
+    // 操作方法
+    /*
+    * concat 
+    */
+    console.log('concat:');
+    var people = ['perez','butsalt'];
+    var people2 = ['zyy','anmhh'];
+
+    console.log(people.concat("dog", 1, null, undefined, {name : 'love'}, people2));
+    console.log(people);
+
+    /*
+    * slice
+    */
+    console.log('slice:');
+    var number = [1,2,3,4,5,6,7];
+    // [2,3,4,5,6,7]
+    console.log(number.slice(1));
+    // [2,3,4] 4的位置是5，不包含最后一项5
+    console.log(number.slice(1,4));
+    // [2,3,4] 位置反向 1+6为7
+    console.log(number.slice(-6,-3));
+    // 第一个索引大于第二个 返回空数组
+    console.log(number.slice(4,1));
+    console.log(number.slice(-3,-6));
+    console.log(number);
+
+    /*
+    * splice
+    */
+    console.log('splice:');
+    var number2 = [1,2,3,4,5,6,7,8,9,10];
+    // [1,2]
+    console.log(number2.splice(0,2));
+    // 会改变元素组 [3,4,5,6,7,8,9,10]
+    console.log(number2);
+    // [5,6,7,8]被删除
+    console.log(number2.splice(2,4));
+    // [3,4,9,10]
+    console.log(number2);
+    // 空[] 没有删除对象
+    console.log(number2.splice(0,0,1,2));
+    // [1,2,3,4,9,10]
+    console.log(number2);
+    // [1] 删除0索引开始第一个数
+    console.log(number2.splice(0,1,1,2));
+    // [1,2,2,3,4,9,10]
+    console.log(number2);
+</script>
+</body>
+</html>
