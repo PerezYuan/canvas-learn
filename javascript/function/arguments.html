@@ -45,6 +45,17 @@
     console.log(tempFac(5));
     // calleeFac is not a function
     // console.log(calleeFac(5));
+
+    function baseFun() {
+        callerFun();
+    }
+
+    // caller指向调用自身函数的方法
+    function callerFun() {
+        console.log(arguments.callee.caller);
+    }
+
+    baseFun();
 </script>
 </body>
 </html>
