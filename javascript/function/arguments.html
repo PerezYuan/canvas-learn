@@ -17,6 +17,34 @@
     console.log(doAdd(10));
     // 30
     console.log(doAdd(10,20));
+
+
+    function factorail (num) {
+        if(num < 1) {
+            return 1;
+        } else {
+            return num * factorail(num - 1);
+        }
+    }
+    // 5*4*3*2*1 = 120
+    console.log(factorail(5));
+
+    // arguments.callee指向拥有这个argument的函数，即calleeFac
+    function calleeFac (num) {
+        if(num < 1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num - 1);
+        }
+    }
+    // 5*4*3*2*1 = 120
+    console.log(calleeFac(5));
+    var tempFac = calleeFac;
+    calleeFac = null;
+    // 5*4*3*2*1 = 120
+    console.log(tempFac(5));
+    // calleeFac is not a function
+    // console.log(calleeFac(5));
 </script>
 </body>
 </html>
