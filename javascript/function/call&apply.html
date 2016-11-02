@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call & apply</title>
+</head>
+<body>
+    <script>
+        var name = 'window';
+
+        function a () {
+            console.log(this.name);
+        }
+
+        var b = { name :　'bname'}
+
+        // 全局name为window
+        a();
+        // bname 作用域被b扩充
+        a.call(b);
+
+
+        function add (num1, num2) {
+            return num1 + num2;
+        }
+
+        function callAdd (num1, num2) {
+            // 全局对象window
+            console.log('this=' + this);
+            // call必须要列举完所有的参数
+            var callResult = add.call(this, num1, num2);
+            // apply可以传递数组进去
+            var applyResult = add.apply(this, arguments);
+            console.log(callResult + ' ' + applyResult);
+            return callResult;
+        }
+
+        console.log(callAdd(4,5));
+
+        // 判断类型最好的方法
+        console.log(Object.prototype.toString.call('5'));
+    </script>
+</body>
+</html>
