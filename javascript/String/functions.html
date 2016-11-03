@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>functions</title>
+</head>
+<body>
+    <script>
+        var test = 'perez';
+        // 1的位置是e
+        console.log(test.charAt(1));
+        // re,结构不包含z
+        console.log(test.substring(2,4))
+        // re,结构不包含z 同上
+        console.log(test.slice(2,4))
+        // rez 返回4个 不足4个
+        console.log(test.substr(2,4).length)
+        // perez yuan 拼接字符串
+        var name = test.concat(' yuan');
+        console.log(name);
+
+        // 第一次出现e是在1
+        console.log(name.indexOf('e'));
+        // 最后一次出现e是在3
+        console.log(name.lastIndexOf('e'));
+
+        var blank = "  yuan zi min  ";
+        // 删除首尾空格
+        console.log(blank.trim());
+
+        var nameSplit = 'perez,yuan,but,salt';
+        console.log(nameSplit.split(','));
+        console.log(nameSplit.split('t'));
+
+        var yellow = 'yellow';
+        console.log(yellow.localeCompare('black'));  //1
+        console.log(yellow.localeCompare('yellow'));  //0
+        console.log(yellow.localeCompare('zero'));  //-1
+
+        console.log(String.fromCharCode(112,101,114,101,122));
+
+        // TODO 正则匹配方法 match search replace
+    </script>
+</body>
+</html>
