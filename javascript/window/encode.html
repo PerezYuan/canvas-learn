@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>encode</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var uri = "http://www.baidu.com#a?data=1   ";
+		/*
+		* encodeURI不会对属于URL的特殊字符进行编码
+		* encodeURIComponent会吧任何非标准字符进行编码
+		* 对应解码方法decodeURI和decodeURIComponent
+		* escape()和unescape()已经被替代
+		*/
+		// http://www.baidu.com#a?data=1%20%20%20
+		console.log(encodeURI(uri));
+		// http%3A%2F%2Fwww.baidu.com%23a%3Fdata%3D1%20%20%20
+		console.log(encodeURIComponent(uri));
+	</script>
+</body>
+</html>
