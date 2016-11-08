@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>property</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var people = {
+            name : 'perez',
+            age : 23,
+            sex : 'male'
+        }
+        /*
+        *  configurable: true  能否通过delete删除并重新定义
+        *  enumerable: true  能否枚举
+        *  value: "perez"  值
+        *  writable: true  能否改写
+        */
+        console.log(Object.getOwnPropertyDescriptor(people, 'name'));
+        for (name in people.name) {
+            console.log(name);
+        }
+    </script>
+</body>
+</html>
