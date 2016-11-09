@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hurt</title>
+</head>
+<body>
+    <input id="changeVal" type="text">
+    <button id="change">修改</button>
+    <button id="sayName">说我的名字</button>
+    <script>
+        function people (config) {
+            this.init(config);
+        }
+
+        people.prototype = {
+            init : function (config) {
+                var me = this;
+                me.name = config.name;
+                me.age = config.age;
+                if (Object.prototype.toString.call(config.change) === '[object Function]') {
+                    var $change = document.getElementById('change');
+                    $change.onclick = function () {
+                        config.change.call(this, me);
+                    }
+                }
+            },
+            sayName : function () {
+                alert(this.name);
+            },
+            sayAge : function () {
+                alert(this.age);
+            }
+        }
+
+        var yuan = new people({
+            name : 'yuanzimin',
+            age : 23,
+            change : function (config) {
+                var $input = document.getElementById('changeVal');
+                config.name = $input.value;
+            }
+        });
+
+        var $sayName = document.getElementById('sayName');
+        $sayName.onclick = function () {
+            alert(yuan.name);
+        }
+    </script>
+</body>
+</html>
