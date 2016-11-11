@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>property</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var people = {
+            name : 'perez',
+            age : 23,
+            sex : 'male'
+        }
+        /*
+        *  configurable: true  能否通过delete删除并重新定义
+        *  enumerable: true  能否枚举
+        *  value: "perez"  值
+        *  writable: true  能否改写
+        */
+        console.log(Object.getOwnPropertyDescriptor(people, 'name'));
+        for (name in people.name) {
+            console.log(name);
+        }
+
+        var car = {};
+        Object.defineProperty(car, 'name',{
+            configurable : true,
+            enumerable : true,
+            value : 'Ferrari',
+            writable : false  // 不能改写
+        })
+        car.name = 'KIA';
+        // Ferrari
+        console.log(car.name);
+        delete car.name;
+        // undefined 如果configurable为false，则此处还是打印出Ferrari
+        console.log(car.name);
+
+        var book = {
+            year : 2005,
+            edition : 1
+        }
+        Object.defineProperty(book, "year", {
+            get : function () {
+                return 1;
+            },
+            set : function (value) {
+                if(value > 2005) {
+                    this.edition = value - this.year;
+                }
+            }
+        })
+        // 1
+        console.log(book.year);
+        book.year = 2006;
+        // 此处打印2005，因为year即使被设置成2006，还是返回1,2006-1=2005
+        console.log(book.edition);
+        /*
+        * 可以用book.__defineGetter__("year",function(){})
+        * 和book.__defineSetter__("year",function(){})替代
+        */
+    </script>
+</body>
+</html>
