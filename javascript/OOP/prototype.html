@@ -18,12 +18,13 @@
         console.log(test1.constructor == Test);
         /* 非原型构造方式结束
         */
-
+        console.log('------------------------------------------');
         function Person (config) {
             this.init(config);
         }
 
         Person.prototype = {
+            name : 'noName',
             init : function (config) {
                 this.name = config.name;
                 this.age = config.age;
@@ -51,7 +52,19 @@
         // function Object() { [native code] } 指向了Object
         console.log(Person.prototype.constructor);
         // 访问实例的原型[[Prototype]] true
-        console.log(perez.__proto__ === Person.prototype); 
+        console.log(perez.__proto__ === Person.prototype);
+        // true 判断是不是参数的原型
+        console.log(Person.prototype.isPrototypeOf(perez));
+        // true 获取一个对象的原型
+        console.log(Object.getPrototypeOf(perez) === Person.prototype);
+        console.log('------------------------------------------');
+        // perez 是否是有自己的名字熟悉，不来自原型 true
+        console.log(perez.name);
+        console.log(perez.hasOwnProperty('name'));
+        delete perez.name;
+        // noName 来自原型 false
+        console.log(perez.name);
+        console.log(perez.hasOwnProperty(name));
     </script>
 </body>
 </html>
