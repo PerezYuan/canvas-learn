@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dealEvent</title>
+</head>
+<body>
+    <button id="btn" class="btnClass">按钮1</button>
+    <button id="btn2" class="btnClass">按钮2</button>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var btn2 = document.getElementById('btn2');
+    document.body.onclick = function () {
+        alert("事件冒泡到body");
+    }
+    // DOM0级绑定事件
+    btn.onclick = function (e) {
+        e.stopPropagation();
+        console.log(this.className);
+        // event 对象
+        console.log(e);
+        btn.onclick = null;
+    }
+    // DOM2级绑定事件 false代表在冒泡阶段处理
+    var handler = function (e) {
+        console.log(this.id);
+    }
+    btn2.addEventListener('click', handler, false);
+    // 移除事件
+    btn2.removeEventListener('click', handler, false);
+
+
+</script>
+</html>
