@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>touch</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body, html {
+        width: 100%;
+        font-size: 12px;
+    }
+</style>
+<body>
+<div id="output"></div>
+<script>
+    // 参考高程的添加事件
+    var EventUtil = {
+        addHandler : function (el, type, handler) {
+            if(el.addEventListener) {
+                el.addEventListener(type, handler, false);
+            } else if (el.attachEvent) {
+                el.attachEvent('on' + type, handler);
+            } else {
+                el['on' + type] = handler;
+            }
+        },
+        removeHandler : function (el, type, handler) {
+            if(el.removeEventListener) {
+                el.removessssssEventListener(type, handler, false);
+            } else if (el.detachEvent) {
+                el.detachEvent('on' + type, handler);
+            } else {
+                el['on' + type] = null;
+            }
+        }
+    }
+
+    function touchHandler(e) {
+        var output = document.getElementById('output');
+        switch (e.type) {
+            case 'touchstart' :
+                output.innerHTML = "触摸开始：坐标为" + e.touches[0].clientX + ',' + e.touches[0].clientY;
+                break;
+            case 'touchmove' : 
+                e.preventDefault();
+                output.innerHTML += "<br>触摸移动，坐标为" + e.changedTouches[0].clientX + ',' + e.changedTouches[0].clientY;
+                break;
+            case 'touchend' : 
+                output.innerHTML += "<br>触摸结束，坐标为" + e.changedTouches[0].clientX + ',' + e.changedTouches[0].clientY;
+                break;
+        }
+    }
+
+    EventUtil.addHandler(document, 'touchstart', touchHandler);
+    EventUtil.addHandler(document, 'touchmove', touchHandler);
+    EventUtil.addHandler(document, 'touchend', touchHandler);
+</script>
+</body>
+</html>

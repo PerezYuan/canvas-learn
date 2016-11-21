@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>brower</title>
+</head>
+<body>
+<script>
+    function test () {
+        var t,el = document.createElement('div');
+        var transition = {
+            "transition" : "transitionend",
+            "MozTransition" : "transitionend",
+            "WebkitTransition" :　"webkitTransitionEnd"
+        }
+
+        for(t in transition) {
+            console.log(t);
+        }
+    }
+    var testResult = test();
+</script>
+</body>
+</html>
