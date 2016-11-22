@@ -38,7 +38,7 @@
                 return event.target ? event.target : event.srcElement;
             }
         }
-
+        // 点击li的事件会冒泡到ul上，被下函数处理
         var links = document.getElementById('links');
         EventUtil.addHandler(links, 'click', function(event) {
             var event = EventUtil.getEvent(event);
