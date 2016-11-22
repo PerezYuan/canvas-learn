@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delegation</title>
+</head>
+<body>
+    <ul id="links">
+        <li id="first">say perez</li>
+        <li id="second">say butsalt</li>
+        <li id="third">say zyy</li>
+    </ul>
+    <script type="text/javascript">
+        // 参考高程的添加事件
+        var EventUtil = {
+            addHandler : function (el, type, handler) {
+                if(el.addEventListener) {
+                    el.addEventListener(type, handler, false);
+                } else if (el.attachEvent) {
+                    el.attachEvent('on' + type, handler);
+                } else {
+                    el['on' + type] = handler;
+                }
+            },
+            removeHandler : function (el, type, handler) {
+                if(el.removeEventListener) {
+                    el.removessssssEventListener(type, handler, false);
+                } else if (el.detachEvent) {
+                    el.detachEvent('on' + type, handler);
+                } else {
+                    el['on' + type] = null;
+                }
+            },
+            getEvent : function (event) {
+                return event ? event : window.event;
+            },
+            getTarget : function (event) {
+                return event.target ? event.target : event.srcElement;
+            }
+        }
+
+        var links = document.getElementById('links');
+        EventUtil.addHandler(links, 'click', function(event) {
+            var event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+
+            switch(target.id) {
+                case 'first':
+                    alert('perez');
+                    break;
+                case 'second':
+                    alert('butsalt');
+                    break;
+                case 'third':
+                    alert('zyy');
+                    break;
+            }
+        })
+    </script>
+</body>
+</html>
