@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>model</title>
+</head>
+<body>
+<div id="output"></div>
+<script>
+    function Model() {
+        this.handlerArr = []; //注册事件的队列
+    }
+
+    // 注册事件
+    Model.prototype.bind = function(eventName, callback) {
+        var handler = this.handlerArr[eventName] || [];
+        handler.push(callback);
+        this.handlerArr[eventName] = handler;
+    };
+
+    // 触发事件
+    Model.prototype.trigger = function(eventName) {
+        // 将arguments转换成数组并获取到除了eventName以外的参数
+        var args = Array.prototype.slice.apply(arguments).slice(1);
+        var handler = this.handlerArr[eventName];
+        // 自定义事件名存在
+        if(handler) {
+            handler.forEach(function(callback) {
+                try {
+                    callback.apply(this, args);
+                }catch(e) {
+                    console.error(e);
+                }
+            })
+        }
+    };
+    var model = new Model();
+    model.bind("event1", function(arg1, arg2) {
+        console.log(arg1, arg2);
+    });
+    // 再一次向event1注册一个新的事件
+    model.bind("event1", function(arg1, arg2) {
+        console.log(arg2, arg2);
+    });
+    // 再一次向event2注册一个新的事件
+    model.bind("event2", function(arg1, arg2) {
+        console.log(arg1 + arg2 + arg2);
+    });
+
+    model.trigger('event1', "a", "b");
+    model.trigger('event2', "a", "b");
+    // 不存在这个事件
+    model.trigger('noevent');
+</script>
+</body>
+</html>
