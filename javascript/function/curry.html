@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>curry</title>
+</head>
+<body>
+<script>
+    var slice = Array.prototype.slice;
+
+    function add() {
+        console.log(eval(slice.apply(arguments).join('+')));
+    }
+
+    var curry = function(fn) {
+        // 除了fn以外的入参
+        var arg = slice.apply(arguments, [1]);
+        return function () {
+            console.log(arg.concat(slice.apply(arguments)));
+            return fn.apply(null, arg.concat(slice.apply(arguments)));
+        }
+    }
+
+    var add1 = curry(add,1);
+    // 4
+    add1(3);
+    // 6
+    add1(3, 2);
+</script>
+</body>
+</html>
