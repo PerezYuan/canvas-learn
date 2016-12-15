@@ -16,6 +16,21 @@
         // 区别就是传参数的问题
         console.log(obj);
         // 涉及到原型再补充
+
+
+        var files = {
+        	file1 : {
+        		fileName : 'file1'
+        	},
+        	file2 : {
+        		fileName : 'file2'
+        	}
+        }
+
+        for (var file in files) {
+        	// string not obj
+        	console.log(typeof file);
+        }
     </script>
 </body>
 </html>
