@@ -21,7 +21,7 @@
     // 触发事件
     Model.prototype.trigger = function(eventName) {
         // 将arguments转换成数组并获取到除了eventName以外的参数
-        var args = Array.prototype.slice.apply(arguments).slice(1);
+        var args = Array.prototype.slice.call(arguments, 1);
         var handler = this.handlerArr[eventName];
         // 自定义事件名存在
         if(handler) {
@@ -46,7 +46,7 @@
     model.bind("event2", function(arg1, arg2) {
         console.log(arg1 + arg2 + arg2);
     });
-
+    // event1存在两个事件，被先后触发
     model.trigger('event1', "a", "b");
     model.trigger('event2', "a", "b");
     // 不存在这个事件
