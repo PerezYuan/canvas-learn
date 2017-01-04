@@ -52,9 +52,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log(_lodash2.default.max([1, 2]));
-	//# sourceMappingURL=maps/main.js.map
-
+	console.log(_lodash2.default.max([1, 2, 3, 4]));
 
 /***/ },
 /* 1 */
@@ -77,8 +75,6 @@
 	lodash.max = _max2.default;
 
 	exports.default = lodash;
-	//# sourceMappingURL=maps/lodash.js.map
-
 
 /***/ },
 /* 2 */
@@ -127,8 +123,6 @@
 	}
 
 	exports.default = max;
-	//# sourceMappingURL=maps/max.js.map
-
 
 /***/ },
 /* 3 */
@@ -173,8 +167,6 @@
 	}
 
 	exports.default = baseExtremum;
-	//# sourceMappingURL=maps/_baseExtremum.js.map
-
 
 /***/ },
 /* 4 */
@@ -223,8 +215,6 @@
 	}
 
 	exports.default = isSymbol;
-	//# sourceMappingURL=maps/isSymbol.js.map
-
 
 /***/ },
 /* 5 */
@@ -272,8 +262,6 @@
 	}
 
 	exports.default = baseGetTag;
-	//# sourceMappingURL=maps/_baseGetTag.js.map
-
 
 /***/ },
 /* 6 */
@@ -295,8 +283,6 @@
 	var _Symbol = _root2.default.Symbol;
 
 	exports.default = _Symbol;
-	//# sourceMappingURL=maps/_Symbol.js.map
-
 
 /***/ },
 /* 7 */
@@ -323,8 +309,6 @@
 	var root = _freeGlobal2.default || freeSelf || Function('return this')();
 
 	exports.default = root;
-	//# sourceMappingURL=maps/_root.js.map
-
 
 /***/ },
 /* 8 */
@@ -342,8 +326,6 @@
 	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
 
 	exports.default = freeGlobal;
-	//# sourceMappingURL=maps/_freeGlobal.js.map
-
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -406,8 +388,6 @@
 	}
 
 	exports.default = getRawTag;
-	//# sourceMappingURL=maps/_getRawTag.js.map
-
 
 /***/ },
 /* 10 */
@@ -440,8 +420,6 @@
 	}
 
 	exports.default = objectToString;
-	//# sourceMappingURL=maps/_objectToString.js.map
-
 
 /***/ },
 /* 11 */
@@ -484,8 +462,6 @@
 	}
 
 	exports.default = isObjectLike;
-	//# sourceMappingURL=maps/isObjectLike.js.map
-
 
 /***/ },
 /* 12 */
@@ -510,8 +486,6 @@
 	}
 
 	exports.default = baseGt;
-	//# sourceMappingURL=maps/_baseGt.js.map
-
 
 /***/ },
 /* 13 */
@@ -543,8 +517,6 @@
 	}
 
 	exports.default = identity;
-	//# sourceMappingURL=maps/identity.js.map
-
 
 /***/ }
 /******/ ]);
