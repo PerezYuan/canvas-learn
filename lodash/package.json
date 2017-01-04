@@ -28,6 +28,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-uglify": "^2.0.0",
+    "html-webpack-plugin": "^2.26.0",
     "webpack": "^1.13.2"
   }
 }
