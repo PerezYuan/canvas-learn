@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":["console","log","max"],"mappings":";;AAAA;;;;;;AAEAA,QAAQC,GAAR,CAAY,iBAAEC,GAAF,CAAM,CAAC,CAAD,EAAG,CAAH,CAAN,CAAZ","file":"../main.js","sourcesContent":["import _ from './lodash';\r\n\r\nconsole.log(_.max([1,2]));"]}

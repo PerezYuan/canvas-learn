@@ -1,0 +1,1 @@
+{"version":3,"sources":["lodash.js"],"names":["lodash","max"],"mappings":";;;;;;AAAA;;;;;;AAEA,IAAIA,SAAS,EAAb;;AAEAA,OAAOC,GAAP;;kBAEeD,M","file":"../lodash.js","sourcesContent":["import max from './max';\r\n\r\nlet lodash = {};\r\n\r\nlodash.max = max;\r\n\r\nexport default lodash;\r\n"]}
