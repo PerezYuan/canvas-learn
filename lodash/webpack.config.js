@@ -9,7 +9,7 @@ var config = {
   },
   plugins: [new HtmlWebpackPlugin({
       template: 'test.html', // 源模板文件
-      filename: 'test.html',
+      filename: '../test.html',
       inject: true
     }
   )],

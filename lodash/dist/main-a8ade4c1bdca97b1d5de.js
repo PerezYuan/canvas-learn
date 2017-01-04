@@ -52,7 +52,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log(_lodash2.default.max([1, 2, 3, 4]));
+	console.log(_lodash2.default.max([1, 2]));
 
 /***/ },
 /* 1 */
