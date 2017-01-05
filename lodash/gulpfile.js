@@ -7,8 +7,9 @@ const gulp = require('gulp'),
 
 
 gulp.task('jsmin', function() {
-    return gulp.src('src/**/*.js')
+    return gulp.src('src/main.js')
         .pipe(webpack(require('./webpack.config.js')))
+        // .pipe(uglify())
         .pipe(gulp.dest('dist/'))
 });
 

@@ -17,7 +17,7 @@ function baseExtremum(array, iteratee, comparator) {
   while (++index < length) {
     var value = array[index],
         current = iteratee(value);
-
+        debugger;
     if (current != null && (computed === undefined
           ? (current === current && !isSymbol(current))
           : comparator(current, computed)
