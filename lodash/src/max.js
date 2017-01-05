@@ -21,6 +21,11 @@ import identity from './identity.js';
  * // => undefined
  */
 function max(array) {
+  /** 
+   * array && array.length能判断 [1,2,3,4]：数组类型 '1234':字符串类型
+   * 传入迭代器对象 identity 恒等值，return argument的第一个值
+   * baseGt 基本比较函数，(value, other) => value > other
+   */
   return (array && array.length)
     ? baseExtremum(array, identity, baseGt)
     : undefined;

@@ -1,3 +1,5 @@
 import _ from './lodash';
 
-console.log(_.max([1,2]));
+let test = 'a';
+console.log('1'.charCodeAt());
+console.log(_.max('123a,23'));

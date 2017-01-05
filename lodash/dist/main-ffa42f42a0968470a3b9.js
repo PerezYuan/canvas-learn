@@ -52,7 +52,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log(_lodash2.default.max([1, 2]));
+	var test = 'a';
+	console.log('1'.charCodeAt());
+	console.log(_lodash2.default.max('123a,23'));
 
 /***/ },
 /* 1 */
@@ -119,6 +121,11 @@
 	 * // => undefined
 	 */
 	function max(array) {
+	  /** 
+	   * array && array.length能判断 [1,2,3,4]：数组类型 '1234':字符串类型
+	   * 传入迭代器对象 identity 恒等值，return argument的第一个值
+	   * baseGt 基本比较函数，(value, other) => value > other
+	   */
 	  return array && array.length ? (0, _baseExtremum2.default)(array, _identity2.default, _baseGt2.default) : undefined;
 	}
 
@@ -153,7 +160,7 @@
 	function baseExtremum(array, iteratee, comparator) {
 	  var index = -1,
 	      length = array.length;
-
+	  // x先执行++ 从0开始得到数组每一个数，如果是字符串 '123123'[0] = '1'
 	  while (++index < length) {
 	    var value = array[index],
 	        current = iteratee(value);

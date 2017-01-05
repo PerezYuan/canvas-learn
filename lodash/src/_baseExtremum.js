@@ -13,7 +13,7 @@ import isSymbol from './isSymbol.js';
 function baseExtremum(array, iteratee, comparator) {
   var index = -1,
       length = array.length;
-
+  // x先执行++ 从0开始得到数组每一个数，如果是字符串 '123123'[0] = '1'
   while (++index < length) {
     var value = array[index],
         current = iteratee(value);
