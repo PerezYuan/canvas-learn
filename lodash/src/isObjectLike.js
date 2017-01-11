@@ -22,6 +22,9 @@
  * _.isObjectLike(null);
  * // => false
  */
+/**
+ * typeof null 为object 所以必须要先判断不是null才行
+ */
 function isObjectLike(value) {
   return value != null && typeof value == 'object';
 }
