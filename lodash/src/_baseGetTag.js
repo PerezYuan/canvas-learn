@@ -17,6 +17,7 @@ var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
  * @returns {string} Returns the `toStringTag`.
  */
 function baseGetTag(value) {
+  debugger;
   if (value == null) {
     return value === undefined ? undefinedTag : nullTag;
   }

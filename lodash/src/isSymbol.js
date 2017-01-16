@@ -21,6 +21,11 @@ var symbolTag = '[object Symbol]';
  * _.isSymbol('abc');
  * // => false
  */
+
+/**
+ * ||如果第一个操作数true，则不执行第二个操作数
+ * 当typeof value不为symbol时候，先判断是否为类对象
+ */
 function isSymbol(value) {
   return typeof value == 'symbol' ||
     (isObjectLike(value) && baseGetTag(value) == symbolTag);

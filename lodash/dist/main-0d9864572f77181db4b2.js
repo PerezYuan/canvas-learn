@@ -52,9 +52,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var test = 'a';
-	console.log('1'.charCodeAt());
-	console.log(_lodash2.default.max('123a,23'));
+	console.log(_lodash2.default.max(['1', Symbol(1)]));
 
 /***/ },
 /* 1 */
@@ -164,7 +162,7 @@
 	  while (++index < length) {
 	    var value = array[index],
 	        current = iteratee(value);
-	    debugger;
+	
 	    if (current != null && (computed === undefined ? current === current && !(0, _isSymbol2.default)(current) : comparator(current, computed))) {
 	      var computed = current,
 	          result = value;
@@ -217,6 +215,11 @@
 	 * _.isSymbol('abc');
 	 * // => false
 	 */
+	
+	/**
+	 * ||如果第一个操作数true，则不执行第二个操作数
+	 * 当typeof value不为symbol时候，先判断是否为类对象
+	 */
 	function isSymbol(value) {
 	  return (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'symbol' || (0, _isObjectLike2.default)(value) && (0, _baseGetTag2.default)(value) == symbolTag;
 	}
@@ -262,6 +265,7 @@
 	 * @returns {string} Returns the `toStringTag`.
 	 */
 	function baseGetTag(value) {
+	  debugger;
 	  if (value == null) {
 	    return value === undefined ? undefinedTag : nullTag;
 	  }
@@ -310,9 +314,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	/** Detect free variable `self`. */
+	/** 详见_freeGlobal.js中逻辑与的思考，此时判断是否为浏览器环境. */
 	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
 	
 	/** Used as a reference to the global object. */
+	/** 先判断服务端环境，再对浏览器环境判断，如都不满足返回Function存在的this */
 	var root = _freeGlobal2.default || freeSelf || Function('return this')();
 	
 	exports.default = root;
@@ -330,6 +336,18 @@
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	/** Detect free variable `global` from Node.js. */
+	/** 
+	 * 逻辑与操作的一些思考
+	 * 1.在第一个操作符等于true的时候会返回第二个操作符
+	 * 2.第一个操作符为对象时候会返回第二个操作符
+	 * 
+	 * 这里如果是nodejs或者io.js环境，typeof global == 'object'为true，从左
+	 * 至右返回第二个global也就是对象，再与一个global.Object === Object进行
+	 * 逻辑与运算根据规则2会直接返回true，再与一个global判断就会返回global了
+	 * 
+	 * 写两层的原因就是为了证明global一定为一个全局且包含内部原生Object的对象
+	 * 保证此时的环境全局是global对象
+	 */
 	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
 	
 	exports.default = freeGlobal;
@@ -464,6 +482,9 @@
 	 * _.isObjectLike(null);
 	 * // => false
 	 */
+	/**
+	 * typeof null 为object 所以必须要先判断不是null才行
+	 */
 	function isObjectLike(value) {
 	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
 	}
@@ -527,4 +548,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=main-35b6c923c16b17e196f5.js.map
+//# sourceMappingURL=main-0d9864572f77181db4b2.js.map
