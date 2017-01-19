@@ -22,6 +22,6 @@ function isMatch() {
 }
 
 var result = isMatch('something', 'gnihtemos'); //true
-var result2 = isMatch('hello', 'olelh')  //true
+var result2 = isMatch('hello', 'olelh'); //true
 console.log(result);
 console.log(result2);
