@@ -11,7 +11,7 @@ function draw(sum, number = 1) {
         return;
     }
     let sumArr = new Array(sum).fill().map((value, index) => index + 1);
-    let ret = []
+    let ret = [];
     for(let i = 0; i < number; i++) {
         let num = Math.floor(Math.random() * number);
         ret.push(...sumArr.splice(num, 1));
