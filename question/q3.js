@@ -5,10 +5,18 @@
  * 快速构建一个抽奖程序
  */
 
-function draw(sum, number) {
+// 问题 splice会进行10次 效率较低
+function draw(sum, number = 1) {
+    if (sum < number) {
+        return;
+    }
     let sumArr = new Array(sum).fill().map((value, index) => index + 1);
-    console.log(sumArr);
-    return sumArr;
+    let ret = []
+    for(let i = 0; i < number; i++) {
+        let num = Math.floor(Math.random() * number);
+        ret.push(...sumArr.splice(num, 1));
+    }
+    return ret;
 }
 
-draw(10,2);
+console.log(draw(10,8));
