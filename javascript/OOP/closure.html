@@ -19,6 +19,31 @@
 　　var result = f1();
 　　result(); // inner
 
+	// from ruanyifeng 
+	var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+　　　　　　return function(){
+　　　　　　　　return this.name;
+　　　　　　};
+　　　　}
+　　};
+
+　　alert(object.getNameFunc()()); //The Window，原因是return的是个纯粹的funtion，这个函数是全局的，this指向的window
+	
+	var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+　　　　　　var that = this;
+　　　　　　return function(){
+　　　　　　　　return that.name;
+　　　　　　};
+　　　　}
+　　};
+　　alert(object.getNameFunc()()); //My Object，原因是object外部的this保存到that上去了，that即为函数内部的值
+
     function fun(n,o) {
         console.log(o)
         return {
