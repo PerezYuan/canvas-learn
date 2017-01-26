@@ -6,6 +6,19 @@
 </head>
 <body>
 <script type="text/javascript">
+	// 函数内部的子函数才能读取函数内部的变量
+	function f1(){
+　　　　var inner = 'inner';
+
+　　　　function f2(){
+　　　　　　alert(inner); 
+　　　　}
+
+　　　　return f2;
+　　}
+　　var result = f1();
+　　result(); // inner
+
     function fun(n,o) {
         console.log(o)
         return {
