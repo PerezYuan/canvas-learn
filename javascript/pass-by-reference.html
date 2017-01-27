@@ -8,7 +8,7 @@
 	<script type="text/javascript">
 	function changeFun(a, b, c)
 		{
-			a = a * 10;
+			a = a + 1;
 			b.item = "changed";
 			c = {item: "changed"};
 		}
@@ -22,6 +22,9 @@
 		console.log(num); //10
 		console.log(obj1.item);  // changed  
 		console.log(obj2.item);  // unchanged
+
+		//由obj2和obj1的结果可以看出来，本质上是没有引用传递的，只是传递引用而已
+		//http://stackoverflow.com/questions/518000/is-javascript-a-pass-by-reference-or-pass-by-value-language
 	</script>
 </body>
 </html>
