@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+</head>
+<body>
+<script type="text/javascript">
+	var name = 'perez';
+
+    function changeName() {
+        // 此处可以访问全局作用域中的name
+        if (name === 'perez') {
+            name = 'yuan';
+        } else {
+            name = 'perez';
+        }
+    }
+    changeName();
+    console.log(name);  //yuan
+
+    function changeName2() {
+        var anotherName = 'trump';
+
+        // swapName函数可以访问tempName、anotherName、name
+        function swapName() {
+            var tempName = anotherName;
+            anotherName = name;
+            name = tempName;
+        }
+
+        swapName();
+    }
+
+    changeName2();
+    console.log(name); // trump
+</script>
+</body>
+</html>
