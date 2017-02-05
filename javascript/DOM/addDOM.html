@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addDom</title>
+</head>
+
+<body>
+    <div id="test" class="test"></div>
+    <script>
+        var test = document.getElementById('test');
+        var p = document.createElement('p');
+        p.innerHTML = 'add label p';
+        test.appendChild(p);
+        // dom会被检查是否parent为test，如果是 先detach，再append
+        test.appendChild(p);
+
+        console.log(p === test.firstChild); //true
+        console.log(p === test.lastChild); //true
+
+        var a = document.createElement('a');
+        a.innerHTML = 'i am a link';
+        a.setAttribute('href', 'http://www.baidu.com');
+        test.insertBefore(a, p);
+
+        console.log(p === test.firstChild); //false
+        console.log(p === test.lastChild); //true
+    </script>
+</body>
+</html>
