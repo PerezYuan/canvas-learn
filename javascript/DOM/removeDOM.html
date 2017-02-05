@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addDom</title>
+</head>
+
+<body>
+    <div id="test" class="test">
+        <p class="test-p">我是一行文字<span>span span</span></p>
+        <button id="btn">删除链接替换文本</button>
+        <a class="test-a" href="http://www.baidu.com">我是一个链接</a>
+    </div>
+    <script>
+        var test = document.getElementById('test');
+        // 由于前后#text节点的存在
+        var p = test.childNodes[1];
+        var a = test.childNodes[test.childNodes.length - 2];
+
+        document.getElementById('btn').addEventListener('click', function() {
+            var input = document.createElement('input');
+            input.setAttribute('type', 'text');
+            input.setAttribute('value', '我是一行文字');
+            
+            var cloneNode = p.cloneNode(true); // 缺省为false, 设置为true为深复制
+            test.removeChild(a)
+            test.replaceChild(input, p);
+            test.appendChild(cloneNode);
+        }, false)
+    </script>
+</body>
+</html>
