@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute</title>
+</head>
+
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3" data-delete="aaa"></div>
+    
+    <script>
+        var test = document.getElementById('test1');
+        var classAtr = document.createAttribute('class');
+        classAtr.nodeValue = 'test1';
+        test.setAttributeNode(classAtr);
+
+        var test = document.getElementById('test2');
+        test.setAttribute('class', 'test2');
+
+        console.log('nodeValue:' + test.getAttributeNode('class').nodeValue + 'nodeType:' + test.getAttributeNode('class').nodeType); // ATTRIBUTE_NODE 2
+
+        // 删除之前先获取
+        var test3 = document.getElementById('test3');
+        var deleteAtr = test3.getAttributeNode('data-delete');
+        test3.removeAttributeNode(deleteAtr);
+    </script>
+</body>
+</html>
