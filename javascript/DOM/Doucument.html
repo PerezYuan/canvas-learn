@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test" class="test" name="div"></div>
+    <a id="labelA" href="###" name="hasHerf">123123</a>
+    <a id="labelA2" name="noHerf">123123</a>
+    <p name="noHerf">aaaa</p>
+    <p id="labelP" name="pp">pppppp</p>
+    <form><input type="text"/></form>
+    <img src="###" />
+    <script>
+        console.log(document.doctype); //<!DOCTYPE html> typeof is Object
+        console.log(document.documentElement === document.firstChild); //false first or childNodes[0] is <!DOCTYPE html>
+        console.log(document.body);
+
+        console.log(document.title); // Document
+        console.log(document.title = 123); //被修改为123
+        console.log(document.URL); // url
+        console.log(document.domain); // 域
+        console.log(document.referrer); // 比如从百度搜索过来的，就是百度，直接打开即为空
+        // DOM
+        console.log("document.getElementById('test')");
+        console.log(document.getElementById('test'));
+        // NodeList
+        console.log("document.getElementsByName('noHerf')");
+        console.log(document.getElementsByName('noHerf'));
+        // HTMLCollection
+        console.log("document.getElementsByTagName('a')");
+        console.log(document.getElementsByTagName('a'));
+        // HTMLCollection
+        console.log("document.getElementsByClassName('test')");
+        console.log(document.getElementsByClassName('test'));
+
+        console.log("所有带有name的a");
+        console.log(document.anchors);
+        console.log("所有带有href的a");
+        console.log(document.links);
+        console.log("所有forms");
+        console.log(document.forms);
+        console.log("所有image");
+        console.log(document.images)
+    </script>
+</body>
+</html>
