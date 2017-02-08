@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element</title>
+</head>
+
+<body>
+    <div id="test" class="test" name="div" lang="zh-CN" dir="ltr" title="title"></div>
+    <script>
+        var div = document.getElementById("test");
+        console.log(div.tagName === div.nodeName); // DIV 大写
+        console.log("id:\n" + div.id);
+        console.log("class:\n" + div.className);
+        console.log("title:\n" + div.title);
+        console.log("lang:\n" + div.lang);
+        console.log("dir:\n" + div.dir);
+        // PS:没有name值
+
+        // NamedNodeMap 0: id 1: class 2: name 3: lang 4: dir 5: title length: 6__proto__: NamedNodeMap
+        console.log(div.attributes);
+    </script>
+</body>
+</html>
