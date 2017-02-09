@@ -8,7 +8,7 @@
             "name": "Launch Program",
             "type": "node2",
             "request": "launch",
-            "program": "${workspaceRoot}/lodash/src/main.js",
+            "program": "${workspaceRoot}/question/q4.js",
             "cwd": "${workspaceRoot}"
         },
         {
