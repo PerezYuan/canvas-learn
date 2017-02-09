@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XHRadvance</title>
+</head>
+<body>
+    <button id="getBtn">get</button>
+    <button id="postBtn">post</button>
+    <script>
+        document.getElementById('getBtn').onclick = function() {
+            var xhr = createXHR();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    // file协议并没有http支持
+                    // if (xhr.status >=200 && xhr.status < 300 || xhr.status == 304) {
+                    //     alert(xhr.responseText);
+                    // } else {
+                    //     alert(xhr.status);
+                    // }
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+
+            xhr.open("get", addParam("data.json?a=1", "b" , 2), true);
+            xhr.send("b=2");
+            // get这样传输数据没用
+        }
+
+        document.getElementById('postBtn').onclick = function() {
+            var xhr = createXHR();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    // file协议并没有http支持
+                    // if (xhr.status >=200 && xhr.status < 300 || xhr.status == 304) {
+                    //     alert(xhr.responseText);
+                    // } else {
+                    //     alert(xhr.status);
+                    // }
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            }
+            // file协议没有用
+            xhr.open("post", addParam("data.json?a=1", "b" , 2), true);
+            xhr.send("b=3");
+        }
+
+        function createXHR() {
+            if(typeof XMLHttpRequest != 'undefined') {
+                return new XMLHttpRequest();
+            } else {
+                return new ActiveXObject();
+            }
+        }
+
+        function addParam(url, name, value) {
+            url += ~url.indexOf('?') ? "&" : "?";
+            url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+            return url;
+        }
+    </script>
+</body>
+</html>
