@@ -10,10 +10,10 @@
     var DEBUG = !!~window.location.href.indexOf('bridge-debug=true');
     var callbacks = {};
     var guid = 0;
-    var ua = navigator.userAgent.toLowerCase();
-    var ANDROID = /android/.test(ua);
-    var IOS = /iphone|ipad/.test(ua);
-    var WP = /windows phone/.test(ua);
+    // var ua = navigator.userAgent.toLowerCase();
+    // var ANDROID = /android/.test(ua);
+    // var IOS = /iphone|ipad/.test(ua);
+    // var WP = /windows phone/.test(ua);
 
 
     /*添加对IOS10的兼容处理 by qp*/
@@ -29,15 +29,15 @@
     * 买家版5.1.7版本才添加关键字buyer 并同时支持IOS10新协议
     * 钉耙4.1.8版本才添加关键字seller 并同时支持IOS10新协议
     */
-    var BUYER = /buyer/.test(ua); // 是否为支持IOS10新协议的买家版
-    var SELLER = /seller/.test(ua); // 是否为支持IOS10新协议的钉耙
+    // var BUYER = /buyer/.test(ua); // 是否为支持IOS10新协议的买家版
+    // var SELLER = /seller/.test(ua); // 是否为支持IOS10新协议的钉耙
 
     // IOS10以下以及旧版本的客户端走oldRule
-    function isOldRule(IOS_SYSTEM_VERSION){
-        // 添加了客户端区分字段才支持IOS10
-        var isOldVersion = !BUYER && !SELLER ;
-        return (IOS_SYSTEM_VERSION < 10) && isOldVersion;
-    }
+    // function isOldRule(IOS_SYSTEM_VERSION){
+    //     // 添加了客户端区分字段才支持IOS10
+    //     var isOldVersion = !BUYER && !SELLER ;
+    //     return (IOS_SYSTEM_VERSION < 10) && isOldVersion;
+    // }
 
 
     /**
@@ -56,22 +56,23 @@
     function invoke(cmd) {
         log('invoke', cmd);
 
-        if (ANDROID) {
-            prompt(cmd);
-        }
-        else if (IOS) {
-            var IOS_SYSTEM_VERSION = /zbj\/(\d+)/.exec(ua) ? /zbj\/(\d+)/.exec(ua)[1] : 0;
-            var bridgeRFC = isOldRule(IOS_SYSTEM_VERSION) ? 'bridge://' : 'bridge://MobileNative?query=';
+        // if (ANDROID) {
+            // prompt(cmd);
+        // }
+        // else if (IOS) {
+            // var IOS_SYSTEM_VERSION = /zbj\/(\d+)/.exec(ua) ? /zbj\/(\d+)/.exec(ua)[1] : 0;
+            // var bridgeRFC = isOldRule(IOS_SYSTEM_VERSION) ? 'bridge://' : 'bridge://MobileNative?query=';
+            var bridgeRFC = 'bridge://MobileNative?query=';
 
             var iframe = document.createElement('IFRAME');
             iframe.setAttribute('src',  bridgeRFC + cmd);
             document.documentElement.appendChild(iframe);
             iframe.parentNode.removeChild(iframe);
             iframe = null;
-        }
-        else if (WP) {
-            // ...
-        }
+        // }
+        // else if (WP) {
+        //     // ...
+        // }
     }
 
     var Bridge = {
