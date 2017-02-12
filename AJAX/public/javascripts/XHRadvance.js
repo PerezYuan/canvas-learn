@@ -28,8 +28,11 @@ document.getElementById('postBtn').onclick = function () {
             console.log(JSON.parse(xhr.responseText));
         }
     }
-    // 设置http头
+
     xhr.open("post", addParam("getjson?a=1", "b", "2"), true);
+    // form-data
+    // application/json
+    // www-form-urlencoded  http头
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("fname=Bill&lname=Gates");
 }
