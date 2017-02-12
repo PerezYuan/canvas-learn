@@ -18,7 +18,7 @@ var json = {
   ]
 }
 
-router.get('/', function (req, res, next) {body
+router.get('/', function (req, res, next) {
   console.log(req);
   res.json(json);
 });
