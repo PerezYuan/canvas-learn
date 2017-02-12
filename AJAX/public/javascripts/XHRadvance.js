@@ -13,7 +13,7 @@ document.getElementById('getBtn').onclick = function () {
 
     xhr.open("get", addParam("/getjson?a=1", "b", 2), true);
     xhr.send("b=2");
-    // get这样传输数据没用
+    // get这样传输数据没用 没有设置http头
 }
 
 document.getElementById('postBtn').onclick = function () {
@@ -28,8 +28,9 @@ document.getElementById('postBtn').onclick = function () {
             console.log(JSON.parse(xhr.responseText));
         }
     }
-    // file协议没有用
-    xhr.open("post", "/getjson", true);
+    // 设置http头
+    xhr.open("post", addParam("getjson?a=1", "b", "2"), true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("fname=Bill&lname=Gates");
 }
 

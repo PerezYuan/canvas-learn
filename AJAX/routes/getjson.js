@@ -24,7 +24,11 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
+  // 两种获取方式
+  console.log(req.body.fname + " " + req.body.lname);
+  console.log(req.param('fname') + " " + req.param('lname'));
+  // 也获取get上的数据
+  console.log(req.query);
   res.json(json);
 });
 
