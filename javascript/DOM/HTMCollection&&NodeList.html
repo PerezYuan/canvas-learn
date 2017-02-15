@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMCollection&&NodeList</title>
+</head>
+<body>
+    <div id="test" class="test" name="myDiv">
+        This is a division
+        <p>modify1</p>
+        <p>modify1</p>
+    </div>
+    <script>
+        var throughId = document.getElementById('test');
+
+        var throughTag = document.getElementsByTagName('div');
+        // IE8及以下无效
+        var throughClass = document.getElementsByClassName('test');
+
+        var throughQuery = document.querySelectorAll('div');
+
+        // 跟Element相关的 HTMLCollection throughId为单元素节点
+        console.log("throughId:");
+        console.log(throughId);
+        console.log("throughTag:");
+        console.log(throughTag);
+        console.log("throughClass:");
+        console.log(throughClass);
+        console.log("throughQuery:");
+        console.log(throughQuery);
+        var nodeList = throughId.childNodes;
+        console.log(nodeList);
+
+        // 注意 NodeList 和 HTMLCollection都是动态的
+        // 但同样的通过querySelectorAll获取的NodeList是静态的
+        var newDiv = document.createElement('div');
+        newDiv.innerHTML = "新增";
+        newDiv.setAttribute("class", "test");
+        document.body.appendChild(newDiv);
+        console.log("修改后：");
+        console.log("throughId:");
+        console.log(throughId);
+        console.log("throughTag:");
+        console.log(throughTag);
+        console.log("throughClass:");
+        console.log(throughClass);
+        console.log("throughQuery:");
+        console.log(throughQuery);  //并没有变
+    </script>
+</body>
+</html>
