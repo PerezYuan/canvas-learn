@@ -8,8 +8,7 @@
 
 <body>
     <p>
-        有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序
-        必须先有有序数组
+        有一个已经有序的数据序列，要求在这个已经排好的数据序列中插入一个数，但要求插入后此数据序列仍然有序 必须先有有序数组
     </p>
 </body>
 <script>
@@ -24,14 +23,17 @@
     console.log(arr);
 
     function insert(arr) {
-        var sortedArr = [1,10,100,1000,10000]
-        for(key in arr) {
-            for(var i = 0; i < sortedArr.length; i++) {
-                if(arr[key] < sortedArr[i]) {
-                    sortedArr[sortedArr.length] = undefined;
+        var sortedArr = [1, 10, 100, 1000, 10000]
+        for (key in arr) {
+            for (var i = 0; i < sortedArr.length; i++) {
+                if (arr[key] < sortedArr[i]) {
                     // es6 扩展数组
-                    sortedArr.copyWithin(i, i - 1);
-                    sortedArr[i] = arr[key];
+                    // sortedArr[sortedArr.length] = undefined;
+                    // sortedArr.copyWithin(i, i - 1);
+                    // sortedArr[i] = arr[key];
+
+                    // splice扩展
+                    sortedArr.splice(i, 0, arr[key]);
                     break;
                 }
             }
