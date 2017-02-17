@@ -1,0 +1,92 @@
+.move {
+    transform-origin: 50% top;
+    transform: rotateX(90deg);
+    transition: 10s;
+}
+
+.number {
+    width: 128px;
+    background-image: url(number.png)
+}
+
+.number0-up {
+    height: 102px;
+    background-position: 0 0;
+}
+.number1-up {
+    height: 102px;
+    background-position: -128px 0;
+}
+.number2-up {
+    height: 102px;
+    background-position: -256px 0;
+}
+.number3-up {
+    height: 102px;
+    background-position: -384px 0;
+}
+.number4-up {
+    height: 102px;
+    background-position: -512px 0;
+}
+.number5-up {
+    height: 102px;
+    background-position: -640px 0;
+}
+.number6-up {
+    height: 102px;
+    background-position: -768px 0;
+}
+.number7-up {
+    height: 102px;
+    background-position: -896px 0;
+}
+.number8-up {
+    height: 102px;
+    background-position: -1024px 0;
+}
+.number9-up {
+    height: 102px;
+    background-position: -1152px 0;
+}
+
+.number0-down {
+    height: 101px;
+    background-position: 0 -102px;
+}
+.number1-down {
+    height: 101px;
+    background-position: -128px -102px;
+}
+.number2-down {
+    height: 101px;
+    background-position: -256px -102px;
+}
+.number3-down {
+    height: 101px;
+    background-position: -384px -102px;
+}
+.number4-down {
+    height: 101px;
+    background-position: -512px -102px;
+}
+.number5-down {
+    height: 101px;
+    background-position: -640px -102px;
+}
+.number6-down {
+    height: 101px;
+    background-position: -768px -102px;
+}
+.number7-down {
+    height: 101px;
+    background-position: -896px -102px;
+}
+.number8-down {
+    height: 101px;
+    background-position: -1024px -102px;
+}
+.number9-down {
+    height: 101px;
+    background-position: -1152px -102px;
+}
