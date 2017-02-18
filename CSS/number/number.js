@@ -39,3 +39,6 @@ Array.from(button).forEach((item) => {
         down.className = classArr.join(" ");
     }, false)
 })
+
+// 屏蔽掉text节点的方式可以给当前元素设定个id然后通过>* remove掉
+console.log(document.querySelectorAll('#body > *'));
