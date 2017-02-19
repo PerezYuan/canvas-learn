@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>var & function</title>
 </head>
+
 <body>
     <script>
         test1();
@@ -17,15 +19,17 @@
             console.log('函数表达式不会提前 ');
         }
 
+        // alert(abc(2,3)); // abc is not a function
+        var abc = new Function("x", "y", "return x * y;");
 
 
         // sayTruth(); error 不函数声明不允许出现在statements中，但是并不严格
 
-        if(1){
-            function sayTruth(){alert('go true')};
+        if (1) {
+            function sayTruth() { alert('go true') };
         }
-        else{
-            function sayTruth(){alert('go false')};
+        else {
+            function sayTruth() { alert('go false') };
         }
 
 
@@ -41,4 +45,5 @@
         console.log(people.name);
     </script>
 </body>
+
 </html>
