@@ -19,7 +19,7 @@ let clearEmptyElement = (element) => {
         return;
     }
     Array.from(element).forEach((item) => {
-        if (item.nodeType == 3 && !/\s/.test(item.nodeValue)) {
+        if (item.nodeType == 3 && /\s+/.test(item.nodeValue)) {
             item.parentNode.removeChild(item);
         }
     })
