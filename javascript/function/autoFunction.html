@@ -13,6 +13,14 @@
         alert(12222);
     })();
 
+    // undefined 是无常的
+    var undefined = "foo";
+    console.log(undefined); // undefined
+
+    (function (undefined) {
+        console.log(typeof undefined); // typeof "foo"
+    })("foo");
+
     // fn1(); error fn1 is not defined
     // anonymous匿名函数
     var test = Function('console.log("测试");');
