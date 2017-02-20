@@ -13,6 +13,15 @@
         alert(12222);
     })();
 
+
+    (function(){
+        var a = b = 3;
+    })();
+
+    // 可以理解为b = 3; var a = b; b被提升
+    console.log("a defined? " + (typeof a !== 'undefined')); // false  
+    console.log("b defined? " + (typeof b !== 'undefined')); // true
+
     // undefined 是无常的
     var undefined = "foo";
     console.log(undefined); // undefined
