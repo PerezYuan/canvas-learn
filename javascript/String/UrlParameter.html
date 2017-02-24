@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UrlParameter</title>
+</head>
+<body>
+    <script>
+        // 模拟Url search行为
+        var urlSearch = "?a=1&b=2&c=3&c=4";
+        var urlSearch2 = window.location.search;
+        var urlParams = new URLSearchParams(urlSearch);
+
+        console.log(urlSearch);
+        console.log("是否有a属性");
+        console.log(urlParams.has('a'));
+        console.log("获得a属性值");
+        console.log(urlParams.get('a'));
+        console.log("获取多个c");
+        console.log(urlParams.getAll('c'));
+        console.log("序列化");
+        console.log(urlParams.toString());
+        console.log("添加一个c = 5");
+        urlParams.append('c', 5)
+        console.log(urlParams.toString());
+    </script>
+</body>
+</html>
