@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>UrlParameter</title>
 </head>
+
 <body>
     <script>
         // 模拟Url search行为
@@ -23,6 +25,17 @@
         console.log("添加一个c = 5");
         urlParams.append('c', 5)
         console.log(urlParams.toString());
+
+        function getUrlParameter(search, name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        console.log(getUrlParameter(urlSearch, "c"));  //只能获取到一个3
+        console.log(getUrlParameter(urlSearch2, "c")); // 空
     </script>
 </body>
+
 </html>
