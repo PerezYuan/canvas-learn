@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>inherit-prototype</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayName = function () {
+            console.log(this.name);
+        };
+        // 创建一个Student类
+        function Student(name, age, stuNum) {
+            this.name = name;
+            this.age = age;
+            // Person.call(this, name, age); 也可以用call方法拿
+            this.stuNum = stuNum;
+        }
+        // 复制Person原型中的所有方法
+        for (var p in Person.prototype) {
+            Student.prototype[p] = Person.prototype[p];
+        }
+
+        Student.prototype = new Person();
+
+        var perez = new Student("perez", 23, 1);
+        perez.sayName();
+        console.log("instanceof Student");
+        console.log(perez instanceof Student);  // true
+        console.log("原因是因为perez.__proto__ === Student.prototype为");
+        console.log(perez.__proto__ === Student.prototype);
+        console.log("instanceof Object");
+        console.log(perez instanceof Object);   // true
+        console.log("原因是因为perez.__proto__ === Object.prototype为");
+        console.log(perez.__proto__.__proto__.__proto__ === Object.prototype);
+        console.log("instanceof Person");
+        console.log(perez instanceof Person);   // false
+        console.log("原因是因为perez.__proto__ === Object.prototype为");
+        console.log(perez.__proto__.__proto__ === Person.prototype);
+    </script>
+</body>
+
+</html>
