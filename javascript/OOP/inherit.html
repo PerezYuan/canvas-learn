@@ -15,13 +15,13 @@
         Person.prototype.sayName = function () {
             console.log(this.name);
         };
-        //创建一个Student类
+        // 创建一个Student类
         function Student(name, age, stuNum) {
             // call方法继承，调用父类Person为Student初始化属性
             Person.call(this, name, age);
             this.stuNum = stuNum;
         }
-        //复制Person原型中的所有方法
+        // 复制Person原型中的所有方法
         for (var p in Person.prototype) {
             Student.prototype[p] = Person.prototype[p];
         }
