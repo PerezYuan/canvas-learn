@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>for-scope</title>
 </head>
+
 <body>
-<script type="text/javascript">
-    var arr = [];
-	for(var i = 0; i < 5; i++) {
-        arr[i] = function() {
-            console.log(i);
-        }
-    }
-    arr[0](); // 5
-
-    var arr2 = [];
-	for(let i = 0; i < 5; i++) {
-        arr2[i] = function() {
-            console.log(i);
-        }
-    }
-    arr2[0](); // 0
-
-    var arr3 = [];
-	for(var i = 0; i < 5; i++) {
-        (function(i) {
-            arr3[i] = function() {
+    <script type="text/javascript">
+        var arr = [];
+        for (var i = 0; i < 5; i++) {
+            arr[i] = function () {
                 console.log(i);
             }
-        })(i)
-    }
-    arr3[0](); // 0
-</script>
+        }
+        arr[0](); // 5
+
+        var arr2 = [];
+        for (let i = 0; i < 5; i++) {
+            arr2[i] = function () {
+                console.log(i);
+            }
+        }
+        arr2[0](); // 0
+
+        var arr3 = [];
+        for (var i = 0; i < 5; i++) {
+            (function (i) {
+                arr3[i] = function () {
+                    console.log(i);
+                }
+            })(i)
+        }
+        arr3[0](); // 0
+
+    </script>
 </body>
+
 </html>
