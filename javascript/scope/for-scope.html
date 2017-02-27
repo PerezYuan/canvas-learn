@@ -21,6 +21,16 @@
         }
     }
     arr2[0](); // 0
+
+    var arr3 = [];
+	for(var i = 0; i < 5; i++) {
+        (function(i) {
+            arr3[i] = function() {
+                console.log(i);
+            }
+        })(i)
+    }
+    arr3[0](); // 0
 </script>
 </body>
 </html>
