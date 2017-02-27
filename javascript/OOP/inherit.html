@@ -17,7 +17,7 @@
         };
         //创建一个Student类
         function Student(name, age, stuNum) {
-            //调用父类的构造方法帮我们初始化属性
+            // call方法继承，调用父类Person为Student初始化属性
             Person.call(this, name, age);
             this.stuNum = stuNum;
         }
