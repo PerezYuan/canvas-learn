@@ -4,11 +4,18 @@
     // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        // {
+        //     "name": "Launch Program",
+        //     "type": "node2",
+        //     "request": "launch",
+        //     "program": "${workspaceRoot}/AJAX/bin/www",
+        //     "cwd": "${workspaceRoot}"
+        // },
         {
             "name": "Launch Program",
             "type": "node2",
             "request": "launch",
-            "program": "${workspaceRoot}/AJAX/bin/www",
+            "program": "${workspaceRoot}/question/q7.js",
             "cwd": "${workspaceRoot}"
         },
         {
