@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body onload="start()">
+    <!-- webGL是通过canvas承载的，所以必须检测 -->
+    <canvas id="glCanvas" width="640" height="480">
+        Your browser doesn't appear to support the
+        <code>&lt;canvas&gt;</code> element.
+    </canvas>
+</body>
+<script>
+    var gl; // WebGL全局上下文变量
+
+    function start() {
+        var canvas = document.getElementById('glCanvas');
+
+        // 初始化
+        gl = initWebGL(canvas);
+
+        if (!gl) {
+            return;
+        }
+
+        // 画颜色 RGBA
+        gl.clearColor(254.1, 0.0, 0.0, .6);
+        // Enable depth testing
+        // gl.enable(gl.DEPTH_TEST);
+        // Near things obscure far things
+        // gl.depthFunc(gl.LEQUAL);
+        // Clear the color as well as the depth buffer.
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    }
+
+    // 初始化webGL,接受一个canvas对象
+    function initWebGL(canvas) {
+        gl = null;
+
+        // 尝试获取标准的webGL上下文，如果不存在，调用实验性的webGL.
+        gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+        // 判断浏览器是否支持
+        if (!gl) {
+            alert('Unable to initialize WebGL. Your browser may not support it.');
+        }
+
+        return gl;
+    }
+
+</script>
+
+</html>
