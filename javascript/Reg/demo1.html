@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reg</title>
+</head>
+
+<body>
+    <script>
+        // 匹配uin
+        var cookie = "PHPSESSID=0kvneb776baqhf58o2tm2c94e5; pgv_pvi=9051466752; pgv_si=s7186281472; qcloud_visitId=a4855986717854a66aa83f24d3354709; qcloud_uid=6d95ce375053a1b31d00fce7af9ba02c; pv_uid=257127f177879f702fe6ef94b9d76cb2;pv_land=http%3A%2F%2Fpassport.qcloud.com%2Findex.php ; _ga=GA1.2.516642758.1463555939;monitorouin=1e19%2BwNnG39Skt0uEiG%2FuMZCqIknLcLH6qt0aj0x ngVjhx7jWWVKewYVkBnbC0PmF4I;monitorappid=8af3cU8qz4kqPoYzLCGRXhLcHpW2w%2BACTZuwj aw%2Fh2PMUBz0yIgdTMG5S5guq7qSygo;ptui_loginuin=3052202501%20;pt2gguin=o3052202501;uin=o3052202501;ptisp=ctc;ptcz=9aa1cf3992c8ed2b581f04d51333f0f0b79adfc74e494daa5ad73703d16f93ff;userinfo =reg%3D1%26un%3Dpolo;nodesess=s%3AO2gAWpD7S4wN9gAu2rYM2Xvf.wq26bg5tscM%2F3X9FEpx8 6K0rzF5w%2BbDRetkKugR19I0; nick=polo; appid=1251000011; moduleId=1251000011; ownerUin=2407912486; regionId=1"
+        var reg = /(?:^|;)(?:\s*)uin=o(\d+)(?:;|$)/;
+
+        console.log(cookie.match(reg)[1]);
+
+    </script>
+</body>
+
+</html>

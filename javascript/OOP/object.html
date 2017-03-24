@@ -31,6 +31,18 @@
         	// string not obj
         	console.log(typeof file);
         }
+        
+
+        var root = {
+            a: 1
+        }
+
+        var map = {};
+        map.root = root;
+        map.root.arr = [];
+        map.root.arr.push('1');
+
+        console.log(root);
     </script>
 </body>
 </html>
