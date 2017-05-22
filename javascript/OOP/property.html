@@ -5,6 +5,7 @@
     <title>property</title>
 </head>
 <body>
+    <div id="test"></div>
     <script type="text/javascript">
         var people = {
             name : 'perez',
@@ -59,6 +60,21 @@
         * 可以用book.__defineGetter__("year",function(){})
         * 和book.__defineSetter__("year",function(){})替代
         */
+
+        window.test = {};
+		var dom = document.getElementById('test');
+		Object.defineProperty(test, 'html', {
+			enumerable: true,
+			configurable: true,
+			set: function(value) {
+				dom.innerHTML = value;
+			},
+			get: function() {
+				return dom.innerHTML;
+			}
+		})
+		test.html = 19;
+		console.log(test.html);
     </script>
 </body>
 </html>
