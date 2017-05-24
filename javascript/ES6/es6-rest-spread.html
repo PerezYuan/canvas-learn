@@ -19,6 +19,12 @@
         // spread就是逆运算，用于打开数组，可以代替apply
         Math.max.apply(null, [1, 2, 3, 4]); // 4
         Math.max(...[1, 2, 3, 4]);
+
+        // 解耦赋值
+        var [a, b, c] = [...[1, 2, 3]];
+        console.log(a); // 1
+        console.log(b); // 2
+        console.log(c); // 3
     </script>
 </body>
 </html>
