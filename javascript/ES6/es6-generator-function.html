@@ -50,6 +50,31 @@
         console.log(gen.next().value); // 13
         console.log(gen.next().value); // 20
         console.log(gen.next().value); // undefined
+
+        function asyncFun1() {
+            setTimeout(function() {
+                return 1;
+            }, 1000);
+        }
+
+        function asyncFun2(a) {
+            setTimeout(function() {
+                return a + 1;
+            }, 2000);
+        }
+
+        function asyncFun3(a) {
+            setTimeout(function() {
+                return a + 2;
+            }, 3000);
+        }
+
+        asyncFun3(asyncFun2(asyncFun1()));
+        // function *asyncFun() {
+        //     setTimeout(function() {
+                
+        //     }, timeout);
+        // }
     </script>
 </body>
 
