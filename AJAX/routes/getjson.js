@@ -19,6 +19,9 @@ var json = {
 }
 
 router.get('/', function (req, res, next) {
+  if(req.query.a) {
+    json.req = req.query.a;
+  }
   res.json(json);
 });
 
