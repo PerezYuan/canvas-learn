@@ -15,7 +15,7 @@
             "name": "Launch Program",
             "type": "node2",
             "request": "launch",
-            "program": "${workspaceRoot}/AJAX/bin/www",
+            "program": "${file}",
             "cwd": "${workspaceRoot}"
         },
         {
