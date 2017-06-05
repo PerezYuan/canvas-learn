@@ -41,32 +41,36 @@ myPlug1([1, 2, 3]);
 
 function inherit(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
-    subClass.constructor = subClass;
+    // subClass.constructor = subClass;
+    // subClass.prototype = new superClass();
     subClass.superClass = superClass;
 }
 
-function A(name) {
+function Animals(name) {
+    this.category = "Animals";
     this.name = name;
 }
 
-A.prototype.sayName = function () {
-    return this.name;
+Animals.prototype.sayCategory = function () {
+    console.log(this.category);
 }
 
-var a = new A('a');
+Animals.prototype.sayName = function () {
+    console.log(this.name);
+}
 
-
-function B(name, nickName) {
-    B.superClass.apply(this, Array.prototype.slice.apply(arguments));
+function Dog(name, nickName) {
+    Dog.superClass.apply(this, Array.prototype.slice.apply(arguments));
     this.nickName = nickName;
 }
 
-inherit(B, A);
-
-B.prototype.sayNickName = function () {
-    return this.nickName;
+Dog.prototype.sayNickName = function () {
+    console.log(this.nickName);
 }
 
-var b = new B('b', 'bb');
-b.sayName();
-b.sayNickName();
+inherit(Dog, Animals);
+
+var dog = new Dog('dog', 'wangcai');
+dog.sayName();
+dog.sayCategory();
+// dog.sayNickName();  inherit方法冲掉了
