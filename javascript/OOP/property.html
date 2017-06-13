@@ -78,31 +78,20 @@
 
 
         var objtest = {
-            obj: {
-                a: {
-                    value: 10
-                },
-                b: {
-                    value: 20
-                }
-            }
+            value: 10
         }
-        Object.defineProperty(objtest, "obj", {
+        Object.defineProperty(objtest, "value", {
             set: function(item) {
-                // if(this.obj[item.name]) {
-                //     this.obj[item.name].value + item.value;
-                // }
-                // this.obj.a = item; setter calls again the setter
+                this.value += item;
+                // setter calls again the setter
+                // https://stackoverflow.com/questions/23938419/using-object-defineproperty-with-rangeerror
             },
             get: function() {
-                return this.obj;
+                return this.value;
             }
         })
 
-        objtest.obj = {
-            name: 'a',
-            value: 10
-        }
+        objtest.value = 20;
     </script>
 </body>
 </html>
