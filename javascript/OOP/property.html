@@ -75,6 +75,34 @@
 		})
 		test.html = 19;
 		console.log(test.html);
+
+
+        var objtest = {
+            obj: {
+                a: {
+                    value: 10
+                },
+                b: {
+                    value: 20
+                }
+            }
+        }
+        Object.defineProperty(objtest, "obj", {
+            set: function(item) {
+                // if(this.obj[item.name]) {
+                //     this.obj[item.name].value + item.value;
+                // }
+                // this.obj.a = item; setter calls again the setter
+            },
+            get: function() {
+                return this.obj;
+            }
+        })
+
+        objtest.obj = {
+            name: 'a',
+            value: 10
+        }
     </script>
 </body>
 </html>
