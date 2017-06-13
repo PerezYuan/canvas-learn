@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS伪类</title>
+    <style>
+        a:link {
+            color: brown;
+        }
+
+        a:visited {
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: orange;
+        }
+        /*这里的p不是第一个子元素，所以没有选择上*/
+
+        .parent p:first-child {
+            background-color: black;
+        }
+        /*这里的p其实是父元素的第二个子元素*/
+
+        .parent p:nth-child(2) {
+            background-color: #ccc;
+        }
+
+        .parent p:nth-of-type(2) {
+            background-color: pink;
+        }
+
+        .parent span:nth-of-type(1) {
+            background-color: pink;
+        }
+        /*选择父元素唯一的子元素*/
+
+        .only p:only-child {
+            background-color: palegreen;
+        }
+        /*选择父元素下唯一类型的子元素*/
+
+        .parent h3:only-of-type {
+            color: red;
+        }
+
+        .demo ul {
+            list-style: none;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .demo ul li {
+            float: left;
+            margin-left: 30px;
+            width: 100px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            background-color: black;
+            color: #fff;
+        }
+        /*选择第一个子元素*/
+
+        .demo ul li:first-child {
+            margin-left: 0;
+            background-color: red;
+        }
+        /*选择最后一个子元素*/
+
+        .demo ul li:last-child {
+            background-color: gray;
+        }
+        /*选择第三个*/
+
+        .demo ul li:nth-child(3) {
+            background-color: yellow;
+        }
+        /*选择奇数*/
+
+        .demo ul li:nth-child(2n-1) {
+            background-color: orange;
+        }
+        /*选择偶数子元素 2n等价于 even*/
+
+        .demo ul li:nth-child(2n) {
+            background-color: pink;
+        }
+        /*选择第五个元素后面的*/
+
+        .demo ul li:nth-child(n+5) {
+            background-color: palegreen;
+        }
+        /*选择第五个元素前面的*/
+
+        .demo ul li:nth-child(-n+5) {
+            background-color: green;
+        }
+        /*隔三个元素换一种背景*/
+
+        .demo ul li:nth-child(4n+1) {
+            background-color: blue;
+        }
+
+        .second {
+            clear: both;
+            margin-top: 50px;
+            width: 500px;
+        }
+
+        .second p {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        /*选择段落的第一行文字*/
+
+        .second p:first-line {
+            color: orangered;
+        }
+        /*选择段落的第一个元素*/
+
+        .second p:first-letter {
+            font-size: 40px;
+            line-height: 40px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <h3>标题</h3>
+        <p>第一个段落</p>
+        <p>第二个段落</p>
+        <span>这是一段行内文字</span>
+        <span>这是一段行内文字</span>
+    </div>
+    <div class="only">
+        <p>这是唯一的一个子元素</p>
+        <!--<span>如果增加一个元素</span>-->
+    </div>
+    <div class="demo">
+        <ul>
+            <li>第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+            <li>第四个</li>
+            <li>第五个</li>
+            <li>第六个</li>
+            <li>第七个</li>
+            <li>第八个</li>
+            <li>第九个</li>
+            <li>第十个</li>
+        </ul>
+    </div>
+    <div class="second">
+        <p>这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。
+            这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。
+        </p>
+        <p>这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。这是很多文字，有很多行。
+            这是很多文字，有很多行。这是很多文字，有很多行。 这是很多文字，有很多行。
+        </p>
+    </div>
+</body>
+
+</html>
