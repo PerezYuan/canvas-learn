@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>justify-content</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul {
+        display: flex;
+        border: 1px solid #f00;
+        background-color: #eee;
+    }
+
+    li {
+        width: 100px;
+        height: 100px;
+        background-color: #00f;
+        margin: 10px;
+    }
+
+    p {
+        margin: 10px;
+    }
+
+    .red {
+        color: #f00;
+    }
+
+    .start {
+        justify-content: flex-start;
+    }
+
+    .end {
+        justify-content: flex-end;
+    }
+
+    .center {
+        justify-content: center;
+    }
+
+    .space-between {
+        justify-content: space-between;
+    }
+
+    .space-around {
+        justify-content: space-around;
+    }
+</style>
+<body>
+    <p>justify-content: flex-start || flex-end || center || space-between || space-around</p>
+
+    <p class="red">flex-start（左对齐）:</p>
+    <ul class="start">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+
+    <p class="red">flex-end（右对齐）:</p>
+    <ul class="end">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+
+    <p class="red">center（居中）:</p>
+    <ul class="center">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+
+    <p class="red">space-between（两端对齐）:</p>
+    <ul class="space-between">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+
+    <p class="red">space-around（间距相同对齐，保证每个flexbox大小相同）:</p>
+    <ul class="space-around">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+</body>
+
+</html>
